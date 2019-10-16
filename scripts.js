@@ -40,19 +40,30 @@ function jump() {
 //     console.log(eventId);
 // });
 var elements = [...document.querySelectorAll('#calendar-body > tr > td')].forEach( (el) => {
-        el.addEventListener('click', function() {
-            // code…
-            debugger
-          if (!this.innerHTML == "") {
-            //   var eventId = parseInt(this.textContent)
-            var eventId = this.innerHTML;
-            currentDay = parseInt(eventId);
-            console.log(eventId);
-          } else {
-              currentDay = "";
-          }
-        })
+    el.addEventListener('click', function() {
+        // code…
+        debugger
+        if (!this.innerHTML == "") {
+        //   var eventId = parseInt(this.textContent)
+        var eventId = this.innerHTML;
+        currentDay = parseInt(eventId);
+        console.log(eventId);
+        } else {
+            currentDay = "";
+        }
+        ouputDate(currentDay, currentMonth, currentYear);
     })
+})
+function ouputDate( x , y, z) {
+    debugger
+    let outSelectDay = document.getElementById("outSelectedDay");
+    let outSelectMonth = document.getElementById("outSelectedMonth");
+    let outSelectYear = document.getElementById("outSelectedYear");
+
+    outSelectDay.value = (currentDay);
+    outSelectMonth.value = selectMonth.value;
+    outSelectYear.value = selectYear.value;
+}
 
 // [].forEach.call(, function(el) {
 //     el.addEventListener('click', function() {
