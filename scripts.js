@@ -1,6 +1,7 @@
 let today = new Date();
 let currentMonth = today.getMonth();
 let currentYear = today.getFullYear();
+let currentDay = null;
 let selectYear = document.getElementById("year");
 let selectMonth = document.getElementById("month");
 
@@ -27,6 +28,41 @@ function jump() {
     currentMonth = parseInt(selectMonth.value);
     showCalendar(currentMonth, currentYear);
 }
+
+// function getClickedItem() {
+//     var eventId = $(this)
+//     console.log(eventId);
+// }
+
+// document.querySelector("#calendar-body > tr > td").addEventListener('click', getClickedItem);
+// $("#calendar-body > tr > td").click(function() {
+//     var eventId = $(this)
+//     console.log(eventId);
+// });
+var elements = [...document.querySelectorAll('#calendar-body > tr > td')].forEach( (el) => {
+        el.addEventListener('click', function() {
+            // code…
+            debugger
+          if (!this.innerHTML == "") {
+            //   var eventId = parseInt(this.textContent)
+            var eventId = this.innerHTML;
+            currentDay = parseInt(eventId);
+            console.log(eventId);
+          } else {
+              currentDay = "";
+          }
+        })
+    })
+
+// [].forEach.call(, function(el) {
+//     el.addEventListener('click', function() {
+//       // code…
+//     //   var eventId = parseInt(this.textContent)
+//       var eventId = this;
+//       console.log(eventId);
+//     })
+//   })
+
 
 function showCalendar(month, year) {
 
@@ -79,3 +115,4 @@ function showCalendar(month, year) {
     }
 
 }
+
